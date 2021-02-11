@@ -1,12 +1,15 @@
 var rain = [];
 var rainingNow = true;
+var showMoon = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   //frameRate(60);
   
-  for (i = 0; i < 100; i++) {
-    rain[i] = new Rain(random(50, width-50), random(0, -3000));
+  if (width > 1400) {
+    for (i = 0; i < 100; i++) {
+      rain[i] = new Rain(random(50, width-50), random(0, -3000));
+    }
   }
 }
 
@@ -21,13 +24,19 @@ function draw() {
       rain[i].splash();
     }
   } 
-  noStroke();
-  fill(230,230,180);
-  ellipse(300,200,190,190);
+  if (width < 1400) {
+    showMoon = false;
+  }
+
+  if (showMoon) {
+    noStroke();
+    fill(230, 230, 180);
+    ellipse(300, 200, 190, 190);
   
-  noStroke();
-  fill(0);
-  ellipse(340,200,200,200);
+    noStroke();
+    fill(0);
+    ellipse(340, 200, 200, 200);
+  }
 }
 
 

@@ -4,7 +4,6 @@
 }
 body {
   font-family: MikadoRegular;
-  src: url("MikadoRegular.otf");
   font-size: 14px;
   letter-spacing: 0.7px;
 }
@@ -25,42 +24,37 @@ a:hover {
   text-decoration: line-through;
 }
 
-a img {
-  border: medium none;
-}
-
-#menu {
+.menu {
   background: transparent;
   bottom: 0;
-  height: 100%;
   text-align: left;
   left: 20px;
-  margin-top: 20px;
-  overflow: auto;
   position: fixed;
-  top: 0;
-  width: 230px;
-  height: 96%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-#menu ul {
+.menu ul {
   list-style-image: none;
   list-style-position: outside;
   list-style-type: none;
   margin: 0 0 15px;
 }
 
-#menu ul li.section-title {
+.menu ul li.section-title {
   color: #ffffff;
   font-family: MikadoRegular;
-  src: url("MikadoRegular.otf");
   font-size: 80%;
   background-color: #000000;
   letter-spacing: 0.6em;
   padding: 0 15px 0 15px;
+  width: 200px;
 }
-#menu ul li a {
+
+.menu ul li a {
   padding: 0 15px 0 15px;
 }
 
@@ -72,46 +66,29 @@ canvas {
 }
 
 #content {
-  height: 100%;
-  margin: 0 0 0 0;
-  border-top: 0px solid transparent;
   text-align: left;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 #contenu {
   position: relative;
   z-index: 2;
-  margin-top: 0px !important;
-  margin-left: 0px;
 }
 
-.container {
-  margin-top: 24.2px !important;
-  margin-left: 0px !important;
-}
-
-#content p8 {
+.p8 {
   font-size: 12px;
   color: #6b6b6b;
-  top: 173%;
-  left: 27%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-#content p9 {
+.p9 {
   font-size: 12px;
   color: #000;
-  top: 123%;
-  left: 57%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-#content p {
+#content article {
   max-width: 500px !important;
   text-align: justify;
 }
@@ -120,9 +97,36 @@ sub1 {
   background-color: rgba(255, 0, 170, 0.35);
 }
 
+#arabic {
+  margin-left: 18rem;
+  font-weight: bold;
+}
+
+#artstation {
+  margin-left: 28rem;
+}
+
+#email {
+  margin-left: 17rem;
+}
+
+#github {
+  margin-left: -1rem;
+}
+
+#resume {
+  margin-left: 15rem;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+
 @font-face {
   font-family: MikadoRegular;
-  src: url("MikadoRegular.otf");
+  src: url('MikadoRegular.otf');
 }
 
 ::selection {
@@ -135,11 +139,9 @@ sub1 {
 /* #### Mobile Phones Portrait #### */
 
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
-  p {
+  article {
     font-size: 25px;
     margin-top: 3rem;
-    font-family: MikadoRegular;
-    src: url("MikadoRegular.otf");
     font-weight: normal;
     line-height: 40px;
     padding-right: 0.6rem;
@@ -148,14 +150,45 @@ sub1 {
 }
 /* #### Mobile Phones Landscape #### */
 
-@media screen and (max-device-width: 640px) and (orientation: landscape) {
-  p {
+@media screen and (max-device-width: 1000px) and (orientation: landscape) {
+  article {
     font-size: 25px;
-    font-family: MikadoRegular;
-    src: url("MikadoRegular.otf");
     font-weight: normal;
     line-height: 40px;
     padding-right: 0.6rem;
     max-width: 45%;
+  }
+  #content {
+    margin-top: 20rem;
+    margin-bottom: 20rem;
+  }
+}
+
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+/* The "responsive" class is added to the menu with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-device-width: 600px) {
+
+  .menu ul {
+    display: none;
+  }
+
+  .menu ul.special {
+    display: block;
+  }
+
+  .menu.responsive {
+    position: relative;
+  }
+
+  .menu.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .menu.responsive li {
+    float: none;
+    display: block;
+    text-align: left;
   }
 }
